@@ -93,7 +93,7 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
-    public int findNumber(int phone) {
+    private int findNumber(int phone) {
         boolean found = false;
         int i=0;
         int result = -1;
@@ -110,9 +110,14 @@ public class ContactBook {
         return result;
 
     }
-    //Pre: findNumber != -1
-    public String getNumberOwner(int pos) {
-        return contacts[pos].getName();
+
+    public boolean hasContact(int phone) {
+        return findNumber(phone) >= 0;
+    }
+
+    //Pre: hasContact(phone)
+    public String getNumberOwner(int phone) {
+        return contacts[findNumber(phone)].getName();
     }
 
     public boolean hasEqualPhoneNumber() {
