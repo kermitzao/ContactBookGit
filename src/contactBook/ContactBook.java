@@ -114,4 +114,21 @@ public class ContactBook {
     public String getNumberOwner(int pos) {
         return contacts[pos].getName();
     }
+
+    public boolean hasEqualPhoneNumber() {
+        if(counter == 0)
+            return false;
+        boolean result = false;
+        int i = 1;
+        int j = 0;
+        while(!result && i < counter) {
+            while(!result && i < counter) {
+                if(contacts[i++].getPhone() == contacts[j].getPhone())
+                    result = true;
+            }
+            j++;
+            i = j+1;
+        }
+        return result;
+    }
 }
